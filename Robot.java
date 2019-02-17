@@ -46,6 +46,7 @@ public class Robot extends TimedRobot {
         log();
     }
 
+    // Send information to the SmartDashboard from eacah subsystem
     private void log() {
         driveTrain.log();
         hatchArm.log();

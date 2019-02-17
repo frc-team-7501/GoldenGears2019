@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.extensions.PID;
 
-
+ 
 public class HatchArm extends Subsystem {
   WPI_TalonSRX pivotMotor = new WPI_TalonSRX(RobotMap.talonHatchArm);
   Encoder pivotEncoder = new Encoder(RobotMap.encoderHatchArm, RobotMap.encoderHatchArm + 1);

@@ -1,0 +1,159 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
+package frc.robot;
+
+
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.TimedRobot;
+
+/**
+ * The VM is configured to automatically run this class, and to call the
+ * functions corresponding to each mode, as described in the IterativeRobot
+ * documentation. If you change the name of this class or the package after
+ * creating this project, you must also update the build.gradle file in the
+ * project.
+ */
+public class Robot extends TimedRobot {
+  /**
+   * This function is run when the robot is first started up and should be used
+   * for any initialization code.
+   */
+  // Drive Type 1 = Tank Drive; 2 = Arcade Mode
+  // private int iDriveType = 2;
+
+   // Varible to determine what robot is running the code 1 = Geargle; 2 = 2019 competition 
+  //  private int iWhichRobot = 2;
+
+  // Human Input 
+  // Button layout green: (1) Red (2) Blue (3) Yellow (4) left bumper (5) 
+  // Button layout Right: bumper (6) Back button(7) start button (8) 
+  // Trigger axis number: Right trigger (axis 3 value 0 to -1) Left trigger (axis 3 value 0 to 1) 
+  // Gamepad joystick axis number: Right stick (Xaxis=4 Yaxis=5 Press down on stick=10)
+  // Gamepad joystick axis number: Left stick (Xaxis=6 Yaxis=N/A Press down on stick=9 ) 
+  private XboxController gamepad1 = new XboxController(0);
+   private Joystick JoystickLeft = new Joystick(0);
+   private Joystick JoystickRight = new Joystick(1);
+
+   // Creates UsbCamera and MjpegServer [1] and connects them
+   CameraServer server;
+
+  // Motors - Victors
+  // private Victor motor_drive_right = new Victor(1), motor_drive_left = new Victor(0);
+  // private DifferentialDrive m_drive = new DifferentialDrive(motor_drive_left, motor_drive_right);
+  // left motors 
+  private WPI_VictorSPX motor_drive_front_left = new WPI_VictorSPX(4);
+  private WPI_VictorSPX motor_drive_back_left = new WPI_VictorSPX(3);
+  SpeedControllerGroup motors_left = new SpeedControllerGroup(motor_drive_front_left, motor_drive_back_left);
+  // right motors
+  private WPI_VictorSPX motor_drive_front_right = new WPI_VictorSPX(2);
+  private WPI_VictorSPX motor_drive_back_right = new WPI_VictorSPX(1);
+  SpeedControllerGroup motors_right = new SpeedControllerGroup(motor_drive_front_right, motor_drive_back_right);
+
+  // Other motors
+  WPI_TalonSRX testMotor = new WPI_TalonSRX(11);
+
+  DifferentialDrive driveTrain = new DifferentialDrive(motors_left, motors_right); 
+
+  private double iHatchPosition;
+
+  // private WPI_TalonSRX 
+  private WPI_TalonSRX Hatch_arm = new WPI_TalonSRX(4); 
+
+  Encoder hatch_arm_encoder = new Encoder(0, 1);
+
+  // Motors - Talons
+   // private Talon motor_drive_right = new Talon(1), motor_drive_left = new Talon(0);
+   // private DifferentialDrive m_drive = new DifferentialDrive(motor_drive_left, motor_drive_right);
+
+  @Override
+  public void robotInit() {
+    // SmartDashboard.putData("Auto choices", m_chooser);
+  CameraServer.getInstance().startAutomaticCapture();
+  hatch_arm_encoder.reset();
+  // Dead zone for joystick input
+  driveTrain.setDeadband(0.08);
+  }
+
+  /**
+   * This function is called every robot packet, no matter the mode. Use this for
+   * items like diagnostics that you want ran during disabled, autonomous,
+   * teleoperated and test.
+   *
+   * <p>
+   * This runs after the mode specific periodic functions, but before LiveWindow
+   * and SmartDashboard integrated updating.
+   */
+  @Override
+  public void robotPeriodic() {
+  }
+
+  /**
+   * This autonomous (along with the chooser code above) shows how to select
+   * between different autonomous modes using the dashboard. The sendable chooser
+   * code works with the Java SmartDashboard. If you prefer the LabVIEW Dashboard,
+   * remove all of the chooser code and uncomment the getString line to get the
+   * auto name from the text box below the Gyro
+   *
+   * <p>
+   * You can add additional auto modes by adding additional comparisons to the
+   * switch structure below with additional strings. If using the SendableChooser
+   * make sure to add them to the chooser code above as well.
+   */
+  @Override
+  public void autonomousInit() {
+    // System.out.println("Auto selected: " + m_autoSelected);
+  }
+
+  /**
+   * This function is called periodically during autonomous.
+   */
+  @Override
+  public void autonomousPeriodic() {
+    // Default program written for us to move it forward, backward and then spin
+    // if (Timer.getMatchTime() > 10) {
+    //   m_drive.arcadeDrive(0.5, 0);
+    // } else if (Timer.getMatchTime() > 5) {
+    //   m_drive.arcadeDrive(-0.5, 0);
+    // } else if (Timer.getMatchTime() > 0) {
+    //   m_drive.arcadeDrive(0, 1);
+    // }
+  }
+
+  /**
+   * This function is called periodically during operator control.
+   */
+  @Override
+  public void teleopPeriodic() {
+    driveTrain.arcadeDrive(JoystickLeft.getY() / -1.5, JoystickLeft.getZ() / 1.3);
+    testMotor.set(gamepad1.getY(Hand.kRight));
+
+    iHatchPosition = hatch_arm_encoder.getDistance();
+    SmartDashboard.putNumber("Arm position", iHatchPosition);
+  }
+
+  /**
+   * This function is called periodically during test mode.
+   */
+  @Override
+  public void testPeriodic() {
+  }
+}
