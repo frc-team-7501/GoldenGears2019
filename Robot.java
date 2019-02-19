@@ -18,6 +18,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         oi = new OI();
+        // Captures camera video and is sent to the RoboRio 
         CameraServer.getInstance().startAutomaticCapture();
     }
 
@@ -46,7 +47,7 @@ public class Robot extends TimedRobot {
         log();
     }
 
-    // Send information to the SmartDashboard from eacah subsystem
+    // Send information to the SmartDashboard from each subsystem
     private void log() {
         driveTrain.log();
         hatchArm.log();

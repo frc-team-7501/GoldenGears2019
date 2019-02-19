@@ -7,6 +7,7 @@ public class MoveCargoArm extends Command {
   double target;
 
   public MoveCargoArm(double target) {
+    //This is explaining that the command MoveCargoArm requuires cargoArm defined in Robot.Java
     requires(Robot.cargoArm);
     this.target = target;
   }
