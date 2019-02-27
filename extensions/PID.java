@@ -3,8 +3,7 @@ package frc.robot.extensions;
 public abstract class PID {
     double Kp, Ki, Kd;
     double nonZeroCycles = 0, lastError = 0, setpoint = 0;
-
-    // Calls PID values (posistion, integral, and derivitive)
+    
     public PID(double p, double i, double d) {
         Kp = p;
         Ki = i;
