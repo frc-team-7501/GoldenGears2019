@@ -10,6 +10,7 @@ import frc.robot.extensions.PID;
 
 // CargoArm subsystem controls the arm moving the Cargo box on top of the robot
 // The arm motor is an encoder motor so we can control how far it moves
+
 public class CargoArm extends Subsystem {
   WPI_TalonSRX pivotMotor = new WPI_TalonSRX(RobotMap.talonCargoArm);
   Encoder pivotEncoder = new Encoder(RobotMap.encoderCargoArm, RobotMap.encoderCargoArm + 1);

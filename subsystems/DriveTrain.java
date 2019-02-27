@@ -31,10 +31,12 @@ public class DriveTrain extends Subsystem {
     drive.setDeadband(0.06);
   }
 
+  // Sets/calls rotation and linear speed 
   public void arcadeDrive(double rotationSpeed, double forwardSpeed) {
     drive.arcadeDrive(rotationSpeed, forwardSpeed);
   }
 
+  // If no other command is being used the defult will run
   @Override
   public void initDefaultCommand() {
     setDefaultCommand(new DriveRobotManual());
