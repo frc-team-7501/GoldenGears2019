@@ -25,8 +25,8 @@ public final class OI {
     public OI() {
     // Define what buttons do what
         buttonA.toggleWhenPressed(new MoveHatchArm(0));
-        buttonX.toggleWhenPressed(new MoveHatchArm(118));
-        buttonY.toggleWhenPressed(new MoveHatchArm(140));
+        buttonX.toggleWhenPressed(new MoveHatchArm(122));
+        buttonY.toggleWhenPressed(new MoveHatchArm(145));
         buttonB.toggleWhenActive(new MoveHatchArm(109));
         buttonLB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         buttonRB.toggleWhenPressed(new MoveCargoArm(-90)); // up

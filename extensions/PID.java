@@ -41,7 +41,7 @@ public abstract class PID {
         double i = error * nonZeroCycles;
         double d = error - lastError / 50;
 
-        // Uses this equation to auto adjust arm to keep it at it's target
+        // Uses this equation to auto adjust arm to keep it at it's target (check this )
         double result = (Kp * error) + (Ki * i) + (Kd * d);
         useOutput(result);
 
