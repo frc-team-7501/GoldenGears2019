@@ -3,6 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.Climb;
 import frc.robot.commands.MoveCargoArm;
 import frc.robot.commands.MoveHatchArm;
 
@@ -19,6 +20,7 @@ public final class OI {
     final JoystickButton buttonLB = new JoystickButton(xbox, 5);
     final JoystickButton buttonRB = new JoystickButton(xbox, 6);
     final JoystickButton buttonBack = new JoystickButton(xbox, 7);
+    final JoystickButton buttonStart = new JoystickButton(xbox, 8);
     // getTriggerAxis 
 
 
@@ -31,6 +33,8 @@ public final class OI {
         buttonLB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         buttonRB.toggleWhenPressed(new MoveCargoArm(-90)); // up
         buttonBack.toggleWhenPressed(new MoveCargoArm(0));
+        buttonStart.toggleWhenPressed(new Climb());
+
 
     }
 }
