@@ -12,8 +12,8 @@ import frc.robot.extensions.PID;
  * Add your docs here.
  */
 public class ClimbArmFront extends Subsystem {
-  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbBack); 
-  Encoder pivotEncoder = new Encoder(RobotMap.encoderCargoArm, RobotMap.encoderCargoArm + 1); 
+  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbFront); 
+  Encoder pivotEncoder = new Encoder(RobotMap.encoderClimbFront, RobotMap.encoderClimbFront + 1); 
   PID pid = new PID(0.015, 0.001, 0.001) {
     @Override
     public void useOutput(double output) {

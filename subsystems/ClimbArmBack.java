@@ -13,11 +13,11 @@ import frc.robot.extensions.PID;
  */
 public class ClimbArmBack extends Subsystem {
   WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbBack); 
-  Encoder pivotEncoder = new Encoder(RobotMap.encoderCargoArm, RobotMap.encoderCargoArm + 1); 
+  Encoder pivotEncoder = new Encoder(RobotMap.encoderClimbBack, RobotMap.encoderClimbBack + 1); 
   PID pid = new PID(0.015, 0.001, 0.001) {
     @Override
     public void useOutput(double output) {
-      //SmartDashboard.putNumber("CargoPID out", output);
+      //SmartDashboard.putNumber("ClimbBackPID out", output);
       setMotor(output);
     }
 
@@ -60,9 +60,9 @@ public class ClimbArmBack extends Subsystem {
   }
 
   public void log() {
-    // SmartDashboard.putNumber("Cargo position", pivotEncoder.getDistance());
-    // SmartDashboard.putNumber("Cargo target", pid.getSetpoint());
-    // SmartDashboard.putNumber("CargoPID last error", pid.getLastError());
+    // SmartDashboard.putNumber("ClimbBack position", pivotEncoder.getDistance());
+    // SmartDashboard.putNumber("CLimbBack target", pid.getSetpoint());
+    // SmartDashboard.putNumber("ClimbBackPID last error", pid.getLastError());
 
   }
   }
