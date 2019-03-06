@@ -4,6 +4,8 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.CargoArm;
+import frc.robot.subsystems.ClimbArmBack;
+import frc.robot.subsystems.ClimbArmFront;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.HatchArm;
 
@@ -14,6 +16,8 @@ public class Robot extends TimedRobot {
     public static DriveTrain driveTrain = new DriveTrain();
     public static HatchArm hatchArm = new HatchArm();
     public static CargoArm cargoArm = new CargoArm();
+    public static ClimbArmBack climbArmBack = new ClimbArmBack();
+    public static ClimbArmFront climbArmFront = new ClimbArmFront(); 
 
     @Override
     public void robotInit() {
@@ -39,7 +43,10 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         hatchArm.runPID();
-        cargoArm.runPID(); 
+        cargoArm.runPID();
+        climbArmBack.runPID();
+        climbArmFront.runPID(); 
+      
     }
 
     @Override
@@ -52,5 +59,8 @@ public class Robot extends TimedRobot {
         driveTrain.log();
         hatchArm.log();
         cargoArm.log(); 
+        climbArmBack.log();
+        climbArmFront.log(); 
+
     }
 }

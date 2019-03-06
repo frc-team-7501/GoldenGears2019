@@ -16,6 +16,8 @@ package frc.robot;
  */
 public class RobotMap {
     // Victor SPXs
+    public static final int victorClimbBack = 6; 
+    public static final int victorClimbFront = 5; 
     public static final int victorDriveFrontLeft = 4;
     public static final int victorDriveFrontRight = 2;
     public static final int victorDriveBackLeft = 3;
@@ -28,4 +30,6 @@ public class RobotMap {
     // Encoders
     public static final int encoderHatchArm = 0; // and 1 
     public static final int encoderCargoArm = 2; // and 3 
+    public static final int encoderClimbFront = 4; // and 5 
+    public static final int encoderClimbBack = 6; // and 7
 }
