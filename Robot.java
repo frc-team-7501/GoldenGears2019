@@ -61,6 +61,5 @@ public class Robot extends TimedRobot {
         cargoArm.log(); 
         climbArmBack.log();
         climbArmFront.log(); 
-
     }
 }
