@@ -3,12 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class MoveClimbArmFront extends Command {
-    double target; 
+public class MoveClimbCrawl extends Command {
+   // double target; 
 
-    public MoveClimbArmFront(double target) {
+    public MoveClimbCrawl(double target) {
       requires(Robot.climbArmFront);
-      //this.target = target;
+     // this.target = target;
     }
   
     // Called just before this Command runs the first time
@@ -19,7 +19,7 @@ public class MoveClimbArmFront extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-      Robot.climbArmFront.setMotor(1);
+      Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / 1.35);
       //Robot.climbArmFront.setTarget(target);
     }
   

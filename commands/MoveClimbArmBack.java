@@ -7,9 +7,8 @@ public class MoveClimbArmBack extends Command {
     double target; 
 
     public MoveClimbArmBack(double target) {
-      //This is explaining that the command MoveCargoArm requuires cargoArm defined in Robot.Java
       requires(Robot.climbArmBack);
-      this.target = target;
+      //this.target = target;
     }
   
     // Called just before this Command runs the first time
@@ -19,8 +18,9 @@ public class MoveClimbArmBack extends Command {
   
     // Called repeatedly when this Command is scheduled to run
     @Override
-    protected void execute() {
-      Robot.climbArmBack.setTarget(target);
+    protected void execute() { 
+      Robot.climbArmBack.setMotor(1);
+      //Robot.climbArmBack.setTarget(target);
     }
   
     // Make this return true when this Command no longer needs to run execute()

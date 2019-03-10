@@ -16,6 +16,7 @@ package frc.robot;
  */
 public class RobotMap {
     // Victor SPXs
+    public static final int victorClimbForward = 7; 
     public static final int victorClimbBack = 6; 
     public static final int victorClimbFront = 5; 
     public static final int victorDriveFrontLeft = 4;

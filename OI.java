@@ -6,12 +6,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Climb;
 import frc.robot.commands.MoveCargoArm;
 import frc.robot.commands.MoveHatchArm;
+import frc.robot.subsystems.ClimbArmBack;
 
 //Joytick and gamepad are defined here
 public final class OI {
     public final XboxController xbox = new XboxController(0);
     public final XboxController xbox2 = new XboxController(2);    
-    public final Joystick stick = new Joystick(1);
+    public final Joystick stick = new Joystick(1); 
     
     // Buttons are called 
     final JoystickButton buttonA = new JoystickButton(xbox, 1);

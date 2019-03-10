@@ -9,7 +9,7 @@ public class MoveCargoArm extends Command {
   public MoveCargoArm(double target) {
     //This is explaining that the command MoveCargoArm requuires cargoArm defined in Robot.Java
     requires(Robot.cargoArm);
-    this.target = target;
+    //this.target = target;
   }
 
   // Called just before this Command runs the first time
@@ -20,7 +20,8 @@ public class MoveCargoArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.cargoArm.setTarget(target);
+    Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / 1.35);
+    //Robot.cargoArm.setTarget(target);
   }
 
   // Make this return true when this Command no longer needs to run execute()
