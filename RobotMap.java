@@ -16,7 +16,8 @@ package frc.robot;
  */
 public class RobotMap {
     // Victor SPXs
-    public static final int victorClimbForward = 7; 
+    public static final int victorClimbCrawl = 7; 
+    // ToDo remove victors and replace with Talons (5 and 6)
     public static final int victorClimbBack = 6; 
     public static final int victorClimbFront = 5; 
     public static final int victorDriveFrontLeft = 4;
@@ -27,10 +28,14 @@ public class RobotMap {
     // Talon SRXs
     public static final int talonHatchArm = 11;
     public static final int talonCargoArm = 12;
-
+    // ToDo update and Talons and later remove Victors(5 and 6 above)
+    public static final int talonClimbFront = 13;
+    public static final int talonClimbBack = 14;
+    
     // Encoders
     public static final int encoderHatchArm = 0; // and 1 
     public static final int encoderCargoArm = 2; // and 3 
+    // ToDo is this needed with the direct connection to the Talon?
     public static final int encoderClimbFront = 4; // and 5 
     public static final int encoderClimbBack = 6; // and 7
 }

@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.CargoArm;
 import frc.robot.subsystems.ClimbArmBack;
 import frc.robot.subsystems.ClimbArmFront;
+import frc.robot.subsystems.ClimbCrawl;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.HatchArm;
 
@@ -18,6 +19,7 @@ public class Robot extends TimedRobot {
     public static CargoArm cargoArm = new CargoArm();
     public static ClimbArmBack climbArmBack = new ClimbArmBack();
     public static ClimbArmFront climbArmFront = new ClimbArmFront(); 
+    public static ClimbCrawl climbCrawl = new ClimbCrawl();
 
     @Override
     public void robotInit() {
@@ -46,7 +48,6 @@ public class Robot extends TimedRobot {
         cargoArm.runPID();
         climbArmBack.runPID();
         climbArmFront.runPID(); 
-      
     }
 
     @Override
@@ -61,5 +62,6 @@ public class Robot extends TimedRobot {
         cargoArm.log(); 
         climbArmBack.log();
         climbArmFront.log(); 
+        climbCrawl.log();
     }
 }

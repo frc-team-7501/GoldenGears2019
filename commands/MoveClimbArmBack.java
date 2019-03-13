@@ -8,7 +8,7 @@ public class MoveClimbArmBack extends Command {
 
     public MoveClimbArmBack(double target) {
       requires(Robot.climbArmBack);
-      //this.target = target;
+      this.target = target;
     }
   
     // Called just before this Command runs the first time
@@ -19,8 +19,8 @@ public class MoveClimbArmBack extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() { 
-      Robot.climbArmBack.setMotor(1);
-      //Robot.climbArmBack.setTarget(target);
+      Robot.climbArmBack.setMotor(0.4);
+      Robot.climbArmBack.setTarget(target);
     }
   
     // Make this return true when this Command no longer needs to run execute()
@@ -40,4 +40,3 @@ public class MoveClimbArmBack extends Command {
     protected void interrupted() {
     }
   }
-  

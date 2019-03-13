@@ -12,7 +12,9 @@ import frc.robot.extensions.PID;
  * Add your docs here.
  */
 public class ClimbArmBack extends Subsystem {
-  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbBack); 
+  // ToDo  replace with Talon
+  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbBack);
+  // ToDo research how to declare encoder directly to Talon  
   Encoder pivotEncoder = new Encoder(RobotMap.encoderClimbBack, RobotMap.encoderClimbBack + 1); 
   PID pid = new PID(0.015, 0.001, 0.001) {
     @Override
