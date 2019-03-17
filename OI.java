@@ -41,9 +41,10 @@ public final class OI {
         button1LB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         button1RB.toggleWhenPressed(new MoveCargoArm(-90)); // up
         button1Back.toggleWhenPressed(new MoveCargoArm(0));
-        button2A.toggleWhenPressed(new Climb());
+        // button2A.toggleWhenPressed(new Climb());
+        button2A.toggleWhenPressed(new MoveClimbArmFront(0));
         button2X.toggleWhenPressed(new MoveClimbCrawl(0.4));
-        button2Y.toggleWhenPressed(new MoveClimbArmFront(20));
-        button2B.toggleWhenPressed(new MoveClimbArmBack(20));
+        button2Y.whenPressed(new MoveClimbArmFront(6144));
+        button2B.whenPressed(new MoveClimbArmBack(20));
     }
 }

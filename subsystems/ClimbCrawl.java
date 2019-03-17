@@ -13,7 +13,6 @@ public class ClimbCrawl extends Subsystem {
   // }
   public void setMotor(double speed) {
     pivotMotor.set(speed);
-     SmartDashboard.putNumber("in set motor ", 1);
   }
 
   @Override

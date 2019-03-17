@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.ClimbArmFront;
 
 public class MoveClimbArmFront extends Command {
     double target; 
@@ -19,14 +20,14 @@ public class MoveClimbArmFront extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-      Robot.climbArmFront.setMotor(0.4);
+     // Robot.climbArmFront.setMotor(0.4);
       Robot.climbArmFront.setTarget(target);
     }
   
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-      return Robot.climbArmFront.isOnTarget();
+      return false;
     }
   
     // Called once after isFinished returns true

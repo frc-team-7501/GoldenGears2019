@@ -1,7 +1,6 @@
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; 
@@ -13,7 +12,7 @@ import frc.robot.extensions.PID;
  */
 public class ClimbArmBack extends Subsystem {
   // ToDo  replace with Talon
-  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.encoderClimbBack);
+  WPI_TalonSRX pivotMotor = new WPI_TalonSRX(RobotMap.encoderClimbBack);
   // ToDo research how to declare encoder directly to Talon  
   Encoder pivotEncoder = new Encoder(RobotMap.encoderClimbBack, RobotMap.encoderClimbBack + 1); 
   PID pid = new PID(0.015, 0.001, 0.001) {

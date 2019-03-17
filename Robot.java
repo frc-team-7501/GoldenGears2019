@@ -3,6 +3,7 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.commands.MoveClimbArmFront;
 import frc.robot.subsystems.CargoArm;
 import frc.robot.subsystems.ClimbArmBack;
 import frc.robot.subsystems.ClimbArmFront;
@@ -12,6 +13,7 @@ import frc.robot.subsystems.HatchArm;
 
 public class Robot extends TimedRobot {
     public static OI oi;
+    double dXboxY;
 
     // Init subsystems here 
     public static DriveTrain driveTrain = new DriveTrain();
@@ -26,6 +28,7 @@ public class Robot extends TimedRobot {
         oi = new OI();
         // Captures camera video and is sent to the RoboRio 
         CameraServer.getInstance().startAutomaticCapture();
+        climbArmFront.setup();
     }
 
     @Override
@@ -43,11 +46,17 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
+        
         Scheduler.getInstance().run();
         hatchArm.runPID();
         cargoArm.runPID();
         climbArmBack.runPID();
-        climbArmFront.runPID(); 
+
+        // Use the left joystick to move the arm
+		dXboxY = Robot.oi.xbox2.getY();
+		if ((dXboxY >= .1) || (dXboxY <= -.1)) {
+			//ClimbArmFront.manualArmMove(dXboxY);
+		}
     }
 
     @Override
