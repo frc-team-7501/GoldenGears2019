@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class MoveClimbArmFront extends Command {
@@ -26,7 +26,7 @@ public class MoveClimbArmFront extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-      SmartDashboard.putBoolean("MCAFront",Robot.climbArmFront.isOnTarget());
+      // SmartDashboard.putBoolean("MCAFront",Robot.climbArmFront.isOnTarget());
       return Robot.climbArmFront.isOnTarget();
     }
   

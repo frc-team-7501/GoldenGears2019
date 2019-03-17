@@ -7,8 +7,8 @@ import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
 import frc.robot.commands.MoveCargoArm;
 import frc.robot.commands.MoveHatchArm;
-import frc.robot.commands.MoveClimbArmBack;
-import frc.robot.commands.MoveClimbArmFront;
+// import frc.robot.commands.MoveClimbArmBack;
+// import frc.robot.commands.MoveClimbArmFront;
 import frc.robot.commands.MoveClimbCrawl;
 
 //Joytick and gamepad are defined here
@@ -45,7 +45,7 @@ public final class OI {
         button2A.whenPressed(new ClimbUp());
         button2B.whenPressed(new MoveClimbCrawl(2, 0.5));
         button2Y.whenPressed(new ClimbDown());
-         button2X.whenPressed(new MoveClimbArmBack(0));
-        button2B.toggleWhenPressed(new MoveClimbArmBack(6144));
+        // button2X.whenPressed(new MoveClimbArmBack(0));
+        // button2B.toggleWhenPressed(new MoveClimbArmBack(6144));
     }
 }

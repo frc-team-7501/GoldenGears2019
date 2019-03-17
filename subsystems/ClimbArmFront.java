@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class ClimbArmFront extends Subsystem {
 	WPI_TalonSRX pivotMotor = new WPI_TalonSRX(RobotMap.talonClimbFront);
 	double target; 
+	public boolean hasClimbed = false;
 
 	public ClimbArmFront() {
 
@@ -26,6 +27,8 @@ public class ClimbArmFront extends Subsystem {
 	public void setTarget(double target) {
 		// Use MotionMagic to move arms to a set target
 		pivotMotor.set(ControlMode.MotionMagic, target);
+
+		hasClimbed = true; 
 
 		/* Smart dash plots */ 
  		SmartDashboard.putNumber("SensorVelFront", pivotMotor.getSelectedSensorVelocity(RobotMap.kPIDLoopIdx)); 
