@@ -2,8 +2,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.OI;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
@@ -30,12 +28,16 @@ public class ClimbArmFront extends Subsystem {
 		pivotMotor.set(ControlMode.MotionMagic, target);
 
 		/* Smart dash plots */ 
- 		SmartDashboard.putNumber("SensorVel", pivotMotor.getSelectedSensorVelocity(RobotMap.kPIDLoopIdx)); 
- 		SmartDashboard.putNumber("SensorPos", pivotMotor.getSelectedSensorPosition(RobotMap.kPIDLoopIdx)); 
- 		SmartDashboard.putNumber("MotorOutputPercent", pivotMotor.getMotorOutputPercent()); 
-		SmartDashboard.putNumber("ClosedLoopError", pivotMotor.getClosedLoopError(RobotMap.kPIDLoopIdx)); 
-		SmartDashboard.putNumber("target", target);
+ 		SmartDashboard.putNumber("SensorVelFront", pivotMotor.getSelectedSensorVelocity(RobotMap.kPIDLoopIdx)); 
+ 		SmartDashboard.putNumber("SensorPosFront", pivotMotor.getSelectedSensorPosition(RobotMap.kPIDLoopIdx)); 
+ 		SmartDashboard.putNumber("MotorOutputPercentFront", pivotMotor.getMotorOutputPercent()); 
+		SmartDashboard.putNumber("ClosedLoopErrorFront", pivotMotor.getClosedLoopError(RobotMap.kPIDLoopIdx)); 
+		SmartDashboard.putNumber("targetFront", target);
 	}
+
+	public boolean isOnTarget() {
+		return Math.abs(target - pivotMotor.getSelectedSensorPosition(RobotMap.kPIDLoopIdx)) < 110;
+	  }
 
 public void setup() {
 	
@@ -65,14 +67,14 @@ public void setup() {
 
 	/* Set Motion Magic gains in slot0 - see documentation */
 	pivotMotor.selectProfileSlot(RobotMap.kSlotIdx, RobotMap.kPIDLoopIdx);
-	pivotMotor.config_kF(RobotMap.kSlotIdx, RobotMap.kGains.kF, RobotMap.kTimeoutMs);
-	pivotMotor.config_kP(RobotMap.kSlotIdx, RobotMap.kGains.kP, RobotMap.kTimeoutMs);
-	pivotMotor.config_kI(RobotMap.kSlotIdx, RobotMap.kGains.kI, RobotMap.kTimeoutMs);
-	pivotMotor.config_kD(RobotMap.kSlotIdx, RobotMap.kGains.kD, RobotMap.kTimeoutMs);
+	pivotMotor.config_kF(RobotMap.kSlotIdx, RobotMap.gainFront.kF, RobotMap.kTimeoutMs);
+	pivotMotor.config_kP(RobotMap.kSlotIdx, RobotMap.gainFront.kP, RobotMap.kTimeoutMs);
+	pivotMotor.config_kI(RobotMap.kSlotIdx, RobotMap.gainFront.kI, RobotMap.kTimeoutMs);
+	pivotMotor.config_kD(RobotMap.kSlotIdx, RobotMap.gainFront.kD, RobotMap.kTimeoutMs);
 
 	/* Set acceleration and vcruise velocity - see documentation */
 	pivotMotor.configMotionCruiseVelocity(15000, RobotMap.kTimeoutMs);
-	pivotMotor.configMotionAcceleration(50, RobotMap.kTimeoutMs);
+	pivotMotor.configMotionAcceleration(500, RobotMap.kTimeoutMs);
 
 	/* Zero the sensor */
 	pivotMotor.setSelectedSensorPosition(0, RobotMap.kPIDLoopIdx, RobotMap.kTimeoutMs);

@@ -32,9 +32,6 @@ public class RobotMap {
     // Encoders
     public static final int encoderHatchArm = 0; // and 1 
     public static final int encoderCargoArm = 2; // and 3 
-    // ToDo is this needed with the direct connection to the Talon?
-    public static final int encoderClimbFront = 4; // and 5 
-    public static final int encoderClimbBack = 6; // and 7
 
     	/** 
  	 * Which PID slot to pull gains from. Starting 2018, you can choose from 
@@ -62,6 +59,6 @@ public class RobotMap {
  	 * Gains used in Motion Magic, to be adjusted accordingly 
       * Gains(kp, ki, kd, kf, izone, peak output); 
       */ 
-     public static final Gains kGains = new Gains(0.46987, 0.00001, 0.001, 30, 0, 1); 
-
+     public static final Gains gainFront = new Gains(0.46987, 0.00001, 0.001, 30, 0, 1); 
+     public static final Gains gainBack = new Gains(0.46987, 0.00001, 0.001, 30, 0, 1);
 }

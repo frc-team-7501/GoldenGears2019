@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
         // Captures camera video and is sent to the RoboRio 
         CameraServer.getInstance().startAutomaticCapture();
         climbArmFront.setup();
+        climbArmBack.setup();
     }
 
     @Override
@@ -50,7 +51,6 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
         hatchArm.runPID();
         cargoArm.runPID();
-        climbArmBack.runPID();
 
         // Use the left joystick to move the arm
 		dXboxY = Robot.oi.xbox2.getY();

@@ -3,7 +3,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.Climb;
+import frc.robot.commands.ClimbDown;
+import frc.robot.commands.ClimbUp;
 import frc.robot.commands.MoveCargoArm;
 import frc.robot.commands.MoveHatchArm;
 import frc.robot.commands.MoveClimbArmBack;
@@ -18,17 +19,17 @@ public final class OI {
     
     // Buttons are called 
     final JoystickButton button1A = new JoystickButton(xbox, 1);
+    final JoystickButton button1B = new JoystickButton(xbox, 2);
     final JoystickButton button1X = new JoystickButton(xbox, 3);
     final JoystickButton button1Y = new JoystickButton(xbox, 4);
-    final JoystickButton button1B = new JoystickButton(xbox, 2 );
     final JoystickButton button1LB = new JoystickButton(xbox, 5);
     final JoystickButton button1RB = new JoystickButton(xbox, 6);
     final JoystickButton button1Back = new JoystickButton(xbox, 7);
     final JoystickButton button1Start = new JoystickButton(xbox, 8);
     final JoystickButton button2A = new JoystickButton(xbox2, 1);
+    final JoystickButton button2B = new JoystickButton(xbox2, 2);
     final JoystickButton button2X = new JoystickButton(xbox2, 3);
     final JoystickButton button2Y = new JoystickButton(xbox2, 4);
-    final JoystickButton button2B = new JoystickButton(xbox2, 2);
     // getTriggerAxis 
 
 
@@ -41,10 +42,10 @@ public final class OI {
         button1LB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         button1RB.toggleWhenPressed(new MoveCargoArm(-90)); // up
         button1Back.toggleWhenPressed(new MoveCargoArm(0));
-        // button2A.toggleWhenPressed(new Climb());
-        button2A.toggleWhenPressed(new MoveClimbArmFront(0));
-        button2X.toggleWhenPressed(new MoveClimbCrawl(0.4));
-        button2Y.whenPressed(new MoveClimbArmFront(6144));
-        button2B.whenPressed(new MoveClimbArmBack(20));
+        button2A.whenPressed(new ClimbUp());
+        button2B.whenPressed(new MoveClimbCrawl(2, 0.5));
+        button2Y.whenPressed(new ClimbDown());
+         button2X.whenPressed(new MoveClimbArmBack(0));
+        button2B.toggleWhenPressed(new MoveClimbArmBack(6144));
     }
 }
