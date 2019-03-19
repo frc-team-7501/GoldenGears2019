@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
+import frc.robot.commands.ClimbUpLevelTwo;
 import frc.robot.commands.MoveCargoArm;
 import frc.robot.commands.MoveHatchArm;
 // import frc.robot.commands.MoveClimbArmBack;
@@ -42,10 +43,12 @@ public final class OI {
         button1LB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         button1RB.toggleWhenPressed(new MoveCargoArm(-90)); // up
         button1Back.toggleWhenPressed(new MoveCargoArm(0));
-        button2A.whenPressed(new ClimbUp());
-        button2B.whenPressed(new MoveClimbCrawl(2, 0.5));
+        button2X.whenPressed(new ClimbUp());
+        button2A.whenPressed(new MoveClimbCrawl(2, 0.5));
         button2Y.whenPressed(new ClimbDown());
+        button2B.whenPressed(new ClimbUpLevelTwo());
         // button2X.whenPressed(new MoveClimbArmBack(0));
         // button2B.toggleWhenPressed(new MoveClimbArmBack(6144));
     }
 }
+// 1,111 total lines of code.
