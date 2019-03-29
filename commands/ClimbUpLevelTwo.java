@@ -31,13 +31,13 @@ public class ClimbUpLevelTwo extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
-    requires(Robot.climbArmFront);
-    requires(Robot.climbArmBack);
+    //requires(Robot.climbArmFront);
+    //requires(Robot.climbArmBack);
     // requires(Robot.climbCrawl);
 
     // Raise the robot up    
-    addParallel(new MoveClimbArmFront(5210));
-    addSequential(new MoveClimbArmBack(6144));
+    addParallel(new MoveClimbArmFront(2000));
+    addSequential(new MoveClimbArmBack(-4100));
     // Moves the robot forward
     // addSequential(new MoveClimbCrawl(2.0, 0.5));
     // Set the robot down

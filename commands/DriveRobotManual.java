@@ -1,9 +1,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.subsystems.DriveTrain;
 
 public class DriveRobotManual extends Command {
+  private double robotSpeed = 1.3;
+
   public DriveRobotManual() {
     requires(Robot.driveTrain);
   }
@@ -16,7 +20,15 @@ public class DriveRobotManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / 1.35);
+    // This enables full power(TURBOOOO) when the trigger is pulled 
+    if (Robot.oi.stick.getTrigger()) {
+      robotSpeed = 1.0;
+    } else {
+      robotSpeed = 1.3;
+    }
+
+    // SmartDashboard.putBoolean("Trigger Value", Robot.oi.stick.getTrigger());
+    Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / robotSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

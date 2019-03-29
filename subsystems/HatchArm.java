@@ -27,6 +27,9 @@ public class HatchArm extends Subsystem {
 
   public HatchArm() {
     pivotEncoder.reset();
+    pivotMotor.configPeakCurrentDuration(0);
+    pivotMotor.configPeakCurrentLimit(10);
+    pivotMotor.configContinuousCurrentLimit(10); 
   }
 
   public double getTarget() {
@@ -58,8 +61,8 @@ public class HatchArm extends Subsystem {
   }
 
   public void log() {
-    // SmartDashboard.putNumber("Hatch position", pivotEncoder.getDistance());
-    // SmartDashboard.putNumber("Hatch target", pid.getSetpoint());
-    // SmartDashboard.putNumber("HacthPID last error", pid.getLastError());
+    //  SmartDashboard.putNumber("Hatch position", pivotEncoder.getDistance());
+    //  SmartDashboard.putNumber("Hatch target", pid.getSetpoint());
+    //  SmartDashboard.putNumber("HacthPID last error", pid.getLastError());
   }
 }

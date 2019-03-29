@@ -22,6 +22,7 @@ public class ClimbArmBack extends Subsystem {
 
   public void manualArmMove(double speed) {
     pivotMotor.set(speed);
+    SmartDashboard.putNumber("SensorPosBack", pivotMotor.getSelectedSensorPosition(RobotMap.kPIDLoopIdx)); 
   }
 
   public void setTarget(double target) {

@@ -16,7 +16,7 @@ import frc.robot.commands.MoveClimbCrawl;
 public final class OI {
     public final XboxController xbox = new XboxController(0);
     public final XboxController xbox2 = new XboxController(1);    
-    public final Joystick stick = new Joystick(1); 
+    public final Joystick stick = new Joystick(2); 
     
     // Buttons are called 
     final JoystickButton button1A = new JoystickButton(xbox, 1);
@@ -30,25 +30,24 @@ public final class OI {
     final JoystickButton button2A = new JoystickButton(xbox2, 1);
     final JoystickButton button2B = new JoystickButton(xbox2, 2);
     final JoystickButton button2X = new JoystickButton(xbox2, 3);
-    final JoystickButton button2Y = new JoystickButton(xbox2, 4);
+    final JoystickButton button2Y = new JoystickButton(xbox2, 4); 
     // getTriggerAxis 
 
 
     public OI() {
     // Define what buttons do what
         button1A.toggleWhenPressed(new MoveHatchArm(0));
-        button1X.toggleWhenPressed(new MoveHatchArm(122));
+        button1X.toggleWhenPressed(new MoveHatchArm(125));
         button1Y.toggleWhenPressed(new MoveHatchArm(145));
         button1B.toggleWhenActive(new MoveHatchArm(109));
         button1LB.toggleWhenPressed(new MoveCargoArm(-52)); // down
         button1RB.toggleWhenPressed(new MoveCargoArm(-90)); // up
         button1Back.toggleWhenPressed(new MoveCargoArm(0));
         button2X.whenPressed(new ClimbUp());
-        button2A.whenPressed(new MoveClimbCrawl(2, 0.5));
+        button2A.whenPressed(new MoveClimbCrawl(4, 1));
         button2Y.whenPressed(new ClimbDown());
         button2B.whenPressed(new ClimbUpLevelTwo());
         // button2X.whenPressed(new MoveClimbArmBack(0));
         // button2B.toggleWhenPressed(new MoveClimbArmBack(6144));
     }
 }
-// 1,111 total lines of code.
