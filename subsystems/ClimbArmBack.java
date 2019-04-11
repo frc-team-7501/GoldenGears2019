@@ -76,6 +76,7 @@ public class ClimbArmBack extends Subsystem {
 
     /* Set acceleration and vcruise velocity - see documentation */
     pivotMotor.configMotionCruiseVelocity(15000, RobotMap.kTimeoutMs);
+    // pivotMotor.configPeakOutputForward(1, RobotMap.kTimeoutMs);
     pivotMotor.configMotionAcceleration(500, RobotMap.kTimeoutMs);
 
     /* Zero the sensor */

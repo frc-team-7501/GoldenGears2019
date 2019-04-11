@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
-import frc.robot.subsystems.DriveTrain;
+// import frc.robot.subsystems.DriveTrain;
 
 public class DriveRobotManual extends Command {
   private double robotSpeed = 1.3;
@@ -29,6 +29,7 @@ public class DriveRobotManual extends Command {
 
     // SmartDashboard.putBoolean("Trigger Value", Robot.oi.stick.getTrigger());
     Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / robotSpeed);
+    Robot.climbCrawl.setMotor(Robot.oi.stick.getY());
   }
 
   // Make this return true when this Command no longer needs to run execute()

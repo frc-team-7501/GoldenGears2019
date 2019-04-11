@@ -4,7 +4,7 @@ import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.CargoArm;
 import frc.robot.subsystems.ClimbArmBack;
 import frc.robot.subsystems.ClimbArmFront;
@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
         *If the robot has not climbed(false) and the output is greater than or equal to .1 or -.1 the robot arms will move 
         *If the robot has not climbed(false) and the output is less than .1 or -.1 the robot will not move.
         */
-        dXboxY = Robot.oi.xbox2.getY(Hand.kLeft);
+        dXboxY = -Robot.oi.xbox2.getY(Hand.kLeft);
         dXboxX = Robot.oi.xbox2.getY(Hand.kRight);
         this.hasClimbed = Robot.climbArmFront.hasClimbed;
 

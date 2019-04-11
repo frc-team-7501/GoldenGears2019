@@ -8,7 +8,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.Robot;
+// import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class ClimbUpLevelTwo extends CommandGroup {
   /**
@@ -36,8 +37,8 @@ public class ClimbUpLevelTwo extends CommandGroup {
     // requires(Robot.climbCrawl);
 
     // Raise the robot up    
-    addParallel(new MoveClimbArmFront(2000));
-    addSequential(new MoveClimbArmBack(-4100));
+    addParallel(new MoveClimbArmFront(RobotMap.climbFrontUpLevel2));
+    addSequential(new MoveClimbArmBack(RobotMap.climbBackUpLevel2));
     // Moves the robot forward
     // addSequential(new MoveClimbCrawl(2.0, 0.5));
     // Set the robot down

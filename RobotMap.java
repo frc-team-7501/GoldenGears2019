@@ -61,4 +61,20 @@ public class RobotMap {
       */ 
      public static final Gains gainFront = new Gains(0.46987, 0.00001, 0.001, 30, 0, 1); 
      public static final Gains gainBack = new Gains(0.46987, 0.00001, 0.001, 30, 0, 1);
+
+     // Setpoints for climb subsystems
+     public static final double climbFrontUpLevel3 = 3231; 
+     public static final double climbBackUpLevel3 = -5110; 
+     public static final double climbFrontUpLevel2 = 0;
+     public static final double climbBackUpLevel2 = 0;
+
+     // Setpoints for hatch arm
+     public static final double hatchArmHigh = 145;
+     public static final double hatchArmMiddle = 125;
+     public static final double hatchArmLow = 109;
+
+     // Setpoints for cargo arm
+     public static final double cargoArmHigh = -90;
+     public static final double cargoArmLow = -52;
+
 }
