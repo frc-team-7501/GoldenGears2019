@@ -11,6 +11,7 @@ import frc.robot.commands.MoveHatchArm;
 // import frc.robot.commands.MoveClimbArmBack;
 // import frc.robot.commands.MoveClimbArmFront;
 // import frc.robot.commands.MoveClimbCrawl;
+// import frc.robot.commands.ToggleCrawl;
 
 //Joytick and gamepad are defined here
 public final class OI {
@@ -31,6 +32,7 @@ public final class OI {
     final JoystickButton button2B = new JoystickButton(xbox2, 2);
     final JoystickButton button2X = new JoystickButton(xbox2, 3);
     final JoystickButton button2Y = new JoystickButton(xbox2, 4);
+    final JoystickButton buttonStick4 = new JoystickButton(stick, 4);
     // getTriggerAxis
 
     public OI() {
@@ -42,9 +44,10 @@ public final class OI {
         button1LB.whenPressed(new MoveCargoArm(RobotMap.cargoArmLow)); // down
         button1RB.whenPressed(new MoveCargoArm(RobotMap.cargoArmHigh)); // up
         button1Back.whenPressed(new MoveCargoArm(0));
-        button2X.toggleWhenPressed(new ClimbUp());
+        // button2X.toggleWhenPressed(new ClimbUp());
         // button2A.toggleWhenPressed(new MoveClimbCrawl(4, -1));
-        button2Y.toggleWhenPressed(new ClimbDown());
-        button2B.toggleWhenPressed(new ClimbUpLevelTwo());
+        // button2Y.toggleWhenPressed(new ClimbDown());
+        // button2B.toggleWhenPressed(new ClimbUpLevelTwo());
+        // buttonStick4.whenPressed(new ToggleCrawl());
     }
 }

@@ -6,7 +6,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 public class ClimbCrawl extends Subsystem {
-  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.victorClimbCrawl); 
+  WPI_VictorSPX pivotMotor = new WPI_VictorSPX(RobotMap.victorClimbCrawl);
+  public boolean enableCrawl = false;
 
   // public ClimbCrawl() {
   // }
@@ -14,11 +15,15 @@ public class ClimbCrawl extends Subsystem {
     pivotMotor.set(speed);
   }
 
+  /* public void toggleEnabled() {
+  //enableCrawl = !enableCrawl;
+  }*/
+
   @Override
   public void initDefaultCommand() {
   }
 
   public void log() {
-    
-   }
+
   }
+}

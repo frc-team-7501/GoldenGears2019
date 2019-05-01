@@ -6,10 +6,11 @@ import frc.robot.Robot;
 // import frc.robot.subsystems.DriveTrain;
 
 public class DriveRobotManual extends Command {
-  private double robotSpeed = 1.3;
+  private double robotSpeed = 1.4;
 
   public DriveRobotManual() {
     requires(Robot.driveTrain);
+    requires(Robot.climbCrawl);
   }
 
   // Called just before this Command runs the first time
@@ -20,16 +21,22 @@ public class DriveRobotManual extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // This enables full power(TURBOOOO) when the trigger is pulled 
+    // This enables full power(TURBOOOO) when the trigger is pulled
     if (Robot.oi.stick.getTrigger()) {
-      robotSpeed = 1.0;
-    } else {
       robotSpeed = 1.3;
+    } else {
+      robotSpeed = 1.4;
     }
 
     // SmartDashboard.putBoolean("Trigger Value", Robot.oi.stick.getTrigger());
     Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / robotSpeed);
-    Robot.climbCrawl.setMotor(Robot.oi.stick.getY());
+    if (Robot.climbCrawl.enableCrawl) {
+      Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -2, Robot.oi.stick.getY() / robotSpeed);
+      Robot.climbCrawl.setMotor(Robot.oi.stick.getY());
+    }else {
+      Robot.driveTrain.arcadeDrive(Robot.oi.stick.getX() / -1.65, Robot.oi.stick.getY() / robotSpeed);
+
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

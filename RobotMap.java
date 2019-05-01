@@ -69,12 +69,12 @@ public class RobotMap {
      public static final double climbBackUpLevel2 = 0;
 
      // Setpoints for hatch arm
-     public static final double hatchArmHigh = 145;
-     public static final double hatchArmMiddle = 125;
-     public static final double hatchArmLow = 109;
+     public static final double hatchArmHigh = 155;
+     public static final double hatchArmMiddle =115;
+     public static final double hatchArmLow = 110;
 
      // Setpoints for cargo arm
-     public static final double cargoArmHigh = -90;
-     public static final double cargoArmLow = -52;
+     public static final double cargoArmHigh = -105;
+     public static final double cargoArmLow = -60;
 
 }
